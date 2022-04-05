@@ -14,4 +14,4 @@ jobs:
       - name: Lint using helm
         uses: WyriHaximus/github-action-helm3@v2.0
         with:
-          exec: helm lint chart/postgres
+          exec: helm lint --set secrets.postgres_password=password chart/postgres
