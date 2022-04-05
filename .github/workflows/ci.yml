@@ -14,17 +14,4 @@ jobs:
       - name: Lint using helm
         uses: WyriHaximus/github-action-helm3@v2.0
         with:
-          exec: helm lint chart/postgres
-
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-
-      - name: Run tests on helm release
-        uses: WyriHaximus/github-action-helm3@v2.0
-        with:
-          exec: helm test -h
+          exec: helm lint .
