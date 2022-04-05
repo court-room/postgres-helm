@@ -14,4 +14,4 @@ jobs:
       - name: Lint using helm
         uses: WyriHaximus/github-action-helm3@v2.0
         with:
-          exec: helm lint .
+          exec: helm lint chart/postgres
