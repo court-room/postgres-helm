@@ -11,5 +11,4 @@ helm repo update
 ```
 
 ## TODO
-1. Fix test cases for helm chart
-2. Fix chart installation
+1. Fix chart installation
