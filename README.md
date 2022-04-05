@@ -16,6 +16,7 @@ helm install psotgres chart/postgres
 
 ## Configuration
 You can provide the following configs for the Postgres Deployment
+
 |Config|Description|Default|
 |:---|:---|:---|
 |`config.POSTGRES_DB`|Default database name to be created|`postgres`|
