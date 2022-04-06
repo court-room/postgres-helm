@@ -41,11 +41,12 @@ spec:
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: {{ .Release.Name }}-secret
+                  name: {{ .Release.Name }}-password-secret
                   key: password
-          envFrom:
-            - configMapRef:
-                name: {{ .Release.Name }}-configmap
+            - name: POSTGRES_DB
+              value: {{ .Values.config.database }}
+            - name: POSTGRES_USER
+              value: {{ .Values.config.user }}
           livenessProbe:
             exec:
               command: ["psql", "-w", "-U", "admin", "-d", "postgres", "-c", "SELECT 1"]
@@ -63,7 +64,7 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
-            - mountPath: {{ .Values.storage.mountPath }}
+            - mountPath: {{ .Values.config.storage.mountPath }}
               name: {{ .Release.Name }}-volume
       volumes:
         - name: {{ .Release.Name }}-volume

@@ -6,10 +6,10 @@ metadata:
 spec:
   storageClassName: manual
   capacity:
-    storage: {{ .Values.storage.capacity }}
-  accessModes: {{ .Values.storage.accessModes }}
+    storage: {{ .Values.config.storage.capacity }}
+  accessModes: {{ .Values.config.storage.accessModes }}
   hostPath:
-    path: {{ .Values.storage.hostPath }}
+    path: {{ .Values.config.storage.hostPath }}
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -19,6 +19,6 @@ spec:
   storageClassName: manual
   resources:
     requests:
-      storage: {{ .Values.storage.capacity }}
+      storage: {{ .Values.config.storage.capacity }}
   volumeMode: Filesystem
-  accessModes: {{ .Values.storage.accessModes }}
+  accessModes: {{ .Values.config.storage.accessModes }}
